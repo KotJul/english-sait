@@ -1,6 +1,7 @@
 *{
   padding: 0px; 
   margin: 0px;  
+  box-sizing: border-box;
 }
 button{
   cursor: pointer;
@@ -25,7 +26,7 @@ header{
 }
 .banner img{
   width: 100%;
-  height: 500px;/*посмотреть в фигме*/
+  height: 600px;
   object-fit: cover;/*заполнение картинкой выделенной области*/
 }
 .header-flex,
@@ -43,8 +44,14 @@ header{
   border-radius: 25px;
   box-shadow: 5px 5px 10px  rgb(1,0,60) ;
 }
+.container{
+  width: 800px;
+  margin: 0 auto;
+
+}
 .header-nav ul{
   display: flex;
+  justify-content: space-between;
   text-align: center;
 }
 .header-nav ul li a{
@@ -61,8 +68,8 @@ header{
   border: 2px solid rgb(195,1,2);
   border-radius:25px;
   font-size: 18px;
-  height: 20px;
-  line-height: 20px;
+  height: 22px;
+  line-height: 12px;
   padding: 5px;
   background: #fff;
   box-shadow: 5px 5px 10px rgb(1,0,60);
@@ -74,11 +81,154 @@ header{
 }
 .social-button{
   background: rgba(0, 0, 0, 0.5);
-  height: 300px;
-  width: 5%;
+  height: 250px;
+  width: 3%;
   
   position: absolute;
-  top: 120px;
+  top: 155px;
   right: 0px;
   z-index: 1;
 }
+.social-button ul li{
+  margin: 8px;
+}
+.banner-info{
+  width: 200;
+  position: absolute;
+  top: 170px;
+
+}
+.banner-info-hello, 
+.banner-info-name{
+  color: #fff;
+  margin: 50px;
+  word-spacing:10px;
+}
+.aboutme{
+  color: black;
+  margin-top: 90px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+.about img{
+  width: 100%;
+}
+.about-span p{
+  margin-top: 15px;
+  word-spacing: 10px;
+}
+.services-wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;/*Разрешает перенос элементов на новую строку, 
+  если они не помещаются в текущей строке*/
+}
+.services-item{
+  padding: 10px;
+}
+.services-item a{
+  display: block;
+  color: #000;
+}
+.services-item-wrap{
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #000;
+  color: white;
+}
+.services-item img{
+  height: 530px;
+  display: block;
+  width: 100%;
+  opacity: 0.85;
+  transition: 0.5 ease-in-out;/*Переход медленно начинается и медленно заканчивается*/
+  width: 400px;
+}
+.services-item-inner{
+  position: absolute;
+  top: 45%;
+  left: 7%;
+  right: 7%;
+  bottom: 45%;
+  border: 1px solid #fff;
+  border-width: 0 1px 1px;
+  transition: 0.4 ease-in-out;
+}
+.services-title{
+  overflow: hidden;
+  transform: translateY(-50%);/*Сдвигает элемент относительно его обычного положения по оси Y.*/
+}
+.services-title h3{
+  font-weight: normal;
+  display: table;/*Определяет, что элемент является блочной таблицей подобно использованию тега table*/
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+  
+}
+.services-title h3::before,
+.services-title h3::after{
+  content: "";/*обязательно для before и after*/
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 1px;
+  background: #fff;
+}
+.services-title h3::before{
+  left: -115px;
+}
+.services-title h3::after{
+  right: -115px;
+}
+.services-item-inner ul{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  opacity: 0;
+  transition: 0.4 ease-in-out;
+}
+.services-item-inner li{
+  position: relative;
+  font-size: 18px;
+  padding: 10px 0;
+  margin-bottom: 4px;
+}
+.services-item-inner li::after{/*три точки перед перечнем*/
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -2px;
+  bottom: -4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 10px 0 0 #fff, -10px 0 0 #fff;
+}
+.services-item-inner li:last-child::after{
+  content: none;/*Не добавляет содержимое. Используется в случае, когда нужно удалить генерируемое содержимое для одного элемента из группы элементов 
+  (например, элементы списка), для которых уже задано это свойство.*/
+}
+
+.services-item:hover img{
+  opacity: 0.45;/*затемнение при наведении*/
+  transform: scale(2.5);/*трансформирует изображение при наведении*/
+}
+.services-item:hover .services-item-inner{
+  top: 7%;
+  bottom: 7%;
+}
+.services-item:hover ul{
+  opacity: 1;/*делает полностью видимым текст списка*/
+  transition-delay: 0.2s;/*позволяет сделать так, чтобы изменение 
+  свойства происходило не моментально, а с некоторой задержкой.*/
+}
+

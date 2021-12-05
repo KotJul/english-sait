@@ -1,0 +1,11 @@
+@media (min-width: 530px) {
+  .services-item {
+     flex-basis: 50%;
+     flex-shrink: 0;
+  }
+}
+@media (min-width: 768px) {
+  .services-item {
+     flex-basis: 33.333333333%;
+  }
+}
